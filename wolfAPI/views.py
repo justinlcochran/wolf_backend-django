@@ -50,7 +50,7 @@ def main(request, pk):
                 description=row['role_description'],
                 alignment=row['role_alignment'],
                 type=row['role_type'],
-                user=request.user
+                user=User.objects.get(id=pk)
             )
             row.save()
     if not GameParameters.objects.filter(user__id=pk):
